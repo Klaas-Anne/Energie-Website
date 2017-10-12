@@ -13,9 +13,9 @@
 		
 		function __construct($parms){
 			$this->hostname = !empty($parms["hostname"]) ? $parms["hostname"] : "localhost";
-			$this->username = !empty($parms["username"]) ? $parms["username"] : "";
+			$this->username = !empty($parms["username"]) ? $parms["username"] : "root";
 			$this->password = !empty($parms["password"]) ? $parms["password"] : "";
-			$this->database = !empty($parms["database"]) ? $parms["database"] : "";
+			$this->database = !empty($parms["database"]) ? $parms["database"] : "nrg";
 			$this->prefix = !empty($parms["prefix"]) ? $parms["prefix"] : "";
 			$this->connector = "mysqli";
 		}
@@ -134,12 +134,14 @@
 		private $aantalPostcodes;
 		private $apparaten;
 		private $aantalApparaten;
+		private $metingen;
 	
 		function __construct($db){
 			$this->postcodes = $this->vulPostcodes($db);
 			$this->aantalPostcodes=count($this->postcodes);
 			$this->apparaten = $this->vulApparaten($db);
 			$this->aantalApparaten = count($this->apparaten);
+			$this->metingen = $this->vulMetetingen($db);
 		}
 	
 		function __destruct(){
@@ -153,6 +155,12 @@
 			
 		function vulApparaten($db){
 			$opdracht="SELECT id FROM apparaat";
+			$result=$db->getArrayResult($opdracht);
+			return $result;
+		}
+
+		function vulMetetingen($db){
+			$opdracht="SELECT id FROM apparaat_huishouden";
 			$result=$db->getArrayResult($opdracht);
 			return $result;
 		}

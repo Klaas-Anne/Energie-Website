@@ -16,11 +16,11 @@ pre { background-color:#FFFFE0; padding:5px; border:1px solid #666600; }
 	<br>Maximum aantal apparaten per huishouden:
 	<br> <input type="text" class="TxtBox" name="Max" value="3">
 	<br>Gebruiker:
-	<br> <input type="text" class="TxtBox" name="User" value="username">
+	<br> <input type="text" class="TxtBox" name="User" value="root">
 	<br>Wachtwoord:
-	<br> <input type="text" class="TxtBox" name="Password" value="wachtwoord">
+	<br> <input type="text" class="TxtBox" name="Password" value="">
 	<br>Database:
-	<br> <input type="text" class="TxtBox" name="Database" value="WAD41">
+	<br> <input type="text" class="TxtBox" name="Database" value="nrg">
 	<br>Database locatie:
 	<br> <input type="text" class="TxtBox" name="Hostname" value="localhost">
 

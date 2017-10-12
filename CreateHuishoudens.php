@@ -21,7 +21,7 @@ pre { background-color:#FFFFE0; padding:5px; border:1px solid #666600; }
 	
 	function CreateHuishoudens($parms, $dbconfig)
 	{
-		require_once("../WAD41/classDb.php");
+		require_once("classDb.php");//../WAD41/
 		//Maak de verbinding met de database
 		$db = new Db($dbconfig);
 		$db->openConnection();
@@ -37,6 +37,7 @@ pre { background-color:#FFFFE0; padding:5px; border:1px solid #666600; }
 			if ($huisId>0) {
 				$result["huishoudens"]++;
 				$result["apparaten"]+=voegApparatenToe($db, $parms["maxApparaten"], $localData, $huisId);
+				$result["metingen"]+=voegMetingenToe($db, $localData);
 			}
 		}
 		return $result;
@@ -60,6 +61,17 @@ pre { background-color:#FFFFE0; padding:5px; border:1px solid #666600; }
 			if ($db->insert_query($opdracht)) $result++;
 		}
 		return $result;
+	}
+
+	function voegMetingenToe($db, $localData){
+		$randdomDatum = mt_rand(20000101, 20171010);
+		$datum=date("Y:m:d", $randdomDatum);
+		$tijd=0;
+		$waarde=0;
+		$app_hh=$localData->getValidApparaatId();
+		$opdracht="INSERT INTO metingen (app_hh, datum, tijd, waarde)"
+						.'VALUES ("'.$app_hh.'", "'.$datum.'", "'.$tijd.'", "'.$waarde.'")';
+		return($db->insert_query($opdracht));
 	}
 ?>	
 </body>
