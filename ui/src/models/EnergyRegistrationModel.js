@@ -35,17 +35,33 @@ class EnergyRegistrationModel extends Model {
 
          */
 
-        const BASE_URL = 'url';
+        // const BASE_URL = 'url';
+        //
+        // axios.get(BASE_URL, {
+        //     params: {
+        //         hh: 1
+        //     }
+        // }).then(function (response) {
+        //     return response;
+        // }).catch(function (error) {
+        //     console.log(error);
+        // })
 
-        axios.get(BASE_URL, {
-            params: {
-                hh: 1
+        return [
+            {
+                "id": "1",
+                "naam": "roeimachine",
+                "max": "20", "merk":
+                "fit4u", "type_fk": "1"
+            },
+            {
+                "id": "2",
+                "naam": "roeimachinessss",
+                "max": "20", "merk":
+                "fit4u", "type_fk": "1"
             }
-        }).then(function (response) {
-            return response;
-        }).catch(function (error) {
-            console.log(error);
-        })
+        ]
+
 
     }
 

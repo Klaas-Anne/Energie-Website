@@ -9,15 +9,29 @@ class EnergyRegistrationView extends View {
         const controller = new EnergyRegistrationController(this.model);
 
         return ([
-            this.model.getUserDevices().map((device) => ([
-                React.createElement('form', {className: 'energy-form', onSubmit: controller.handleSubmit}, [
-                    <Energytimes times={this.model.getValidRegistrationTimes()} handle={controller.handleInputChange}/>,
-                    React.createElement('button', {type: 'submit'}, "Save")
-                ])
-            ]))
-        ]);
+                <table>
+                    <tr>
+                        {this.model.getUserDevices().map((device) => (
+                            <td>
+                                <EnergyForm model={this.model} controller={controller} device={device}/>
+                            </td>
+                        ))}
+                    </tr>
+                </table>
+            ]
+        )
     }
 }
+
+const EnergyForm = ({model, controller, device}) => {
+    return (
+        React.createElement('form', {className: 'energy-form', onSubmit: controller.handleSubmit}, [
+            <th>{device.naam}</th>,
+            <Energytimes times={model.getValidRegistrationTimes()} handle={controller.handleInputChange}/>,
+            React.createElement('button', {type: 'submit'}, "Save")
+        ])
+    );
+};
 
 const Energytimes = ({times, handle}) => {
     const data = [];
