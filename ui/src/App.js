@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import 'react-table/react-table.css'
-import SelectDeviceModel from "./model/SelectDeviceModel";
-import EnergyRegistrationModel from "./model/EnergyRegistrationModel";
+import EnergyOverviewModel from "./model/EnergyOverviewModel";
 
 
 class App extends Component {
@@ -14,7 +12,7 @@ class App extends Component {
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h1 className="App-title">Welcome to React</h1>
                 </header>
-                <EnergyRegistrationModel/>
+                <EnergyOverviewModel/>
             </div>
         );
     }

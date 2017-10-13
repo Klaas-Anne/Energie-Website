@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import Model from "./Model";
+import EnergyOverviewView from "../views/EnergyOverviewView";
 
-class Overview extends Component {
+class EnergyOverviewModel extends Model {
 
-    getEnergies() {
+    getMeasurements() {
         return [{
             device: {
                 "id": "1",
@@ -54,52 +56,10 @@ class Overview extends Component {
 
     render() {
         return (
-            this.getEnergies().map((info) => (
-                <EnergieTable info={info}/>
-            ))
+            new EnergyOverviewView(this).render()
         )
     }
 
 }
 
-const EnergieTable = ({info}) => {
-    var kwData = [];
-    var kwhData = [];
-    var times = [];
-
-    info.energies.forEach(function (k, v) {
-        kwData.push(<td>{k.kw}</td>);
-        times.push(<th>{k.time}</th>)
-        if (kwhData.length > 0) {
-            const last = kwhData[kwhData.length - 1]
-            kwhData.push(last + k.kw);
-        } else {
-            kwhData.push(k.kw);
-        }
-    });
-
-    var kwhtableData = [];
-    kwhData.forEach(function (k) {
-        kwhtableData.push(<td>{k}</td>)
-    });
-
-    return (
-        <table>
-            <tr>
-                <th></th>
-                {times}
-            </tr>
-            <tr>
-                <th>kw</th>
-                {kwData}
-            </tr>
-            <tr>
-                <th>kwh</th>
-                {kwhtableData}
-            </tr>
-        </table>
-    )
-}
-
-
-export default Overview;
+export default EnergyOverviewModel;
