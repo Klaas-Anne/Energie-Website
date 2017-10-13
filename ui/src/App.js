@@ -4,6 +4,8 @@ import './App.css';
 
 import Register from './Register';
 import SelectDevices from './SelectDevices';
+import EnergyRegistration from "./EnergyRegistration";
+
 
 class App extends Component {
   render() {
@@ -13,7 +15,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-            <SelectDevices/>
+            <EnergyRegistration/>
       </div>
     );
   }
