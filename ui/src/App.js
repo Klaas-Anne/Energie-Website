@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Register from './Register';
-import SelectDevices from './SelectDevices';
-import EnergyRegistration from "./EnergyRegistration";
+import Register from './views/Register';
+import SelectDevices from './views/SelectDevices';
+import EnergyRegistration from "./views/EnergyRegistration";
 
 
 class App extends Component {

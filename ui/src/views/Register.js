@@ -1,4 +1,4 @@
-import Form from "./Helpers/Form";
+import Form from "../Helpers/Form";
 import React, {Component} from 'react';
 
 class Register extends Form {
