@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
 import Model from "./Model";
 import EnergyRegistrationView from "../views/EnergyRegistrationView";
+import axios from 'axios';
 
 class EnergyRegistrationModel extends Model {
-
-
-    constructor() {
-        super();
-    }
 
     getValidRegistrationTimes() {
         return {
@@ -17,14 +13,40 @@ class EnergyRegistrationModel extends Model {
     }
 
     getUserDevices() {
-        return [
-            {
-                "id": "1",
-                "naam": "roeimachine",
-                "max": "20", "merk":
-                "fit4u", "type_fk": "1"
+
+        /*
+            Hier moet een call komen die apparaten teruggeeft die bij een bepaald
+            huishouden hoort.
+
+            Input is: hh_id
+
+            Response format:
+
+            [
+                {
+                    "id": "1",
+                    "naam": "roeimachine",
+                    "max": "20", "merk":
+                    "fit4u", "type_fk": "1"
+                },
+                ....
+            ]
+
+
+         */
+
+        const BASE_URL = 'url';
+
+        axios.get(BASE_URL, {
+            params: {
+                hh: 1
             }
-        ]
+        }).then(function (response) {
+            return response;
+        }).catch(function (error) {
+            console.log(error);
+        })
+
     }
 
     render() {

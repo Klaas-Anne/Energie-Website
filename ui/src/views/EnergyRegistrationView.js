@@ -1,12 +1,12 @@
 import View from "./View";
 import React, {Component} from 'react';
-import FormController from "../controllers/FormController";
+import EnergyRegistrationController from "../controllers/EnergyRegistrationController";
 
 class EnergyRegistrationView extends View {
 
     render() {
 
-        const controller = new FormController(this.model);
+        const controller = new EnergyRegistrationController(this.model);
 
         return ([
             this.model.getUserDevices().map((device) => ([
