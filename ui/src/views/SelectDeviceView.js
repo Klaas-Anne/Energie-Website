@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import View from "./View";
-import FormController from "../controllers/FormController";
+import SelectDeviceController from "../controllers/SelectDeviceController";
 
 class SelectDeviceView extends View {
 
     render() {
 
-        const controller = new FormController(this.model);
+        const controller = new SelectDeviceController(this.model);
         const devices = this.model.getAllDevices();
 
         return (

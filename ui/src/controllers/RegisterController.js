@@ -1,4 +1,5 @@
 import FormController from "./FormController";
+import axios from 'axios';
 
 class RegisterController extends FormController {
 
