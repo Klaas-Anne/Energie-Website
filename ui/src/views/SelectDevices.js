@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Form from '../Helpers/Form';
+import Form from '../controllers/FormController';
 
 class SelectDevices extends Form {
 

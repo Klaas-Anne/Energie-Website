@@ -4,7 +4,7 @@ import './App.css';
 import 'react-table/react-table.css'
 
 
-import Register from './views/Register';
+import Register from './model/RegisterModel';
 import SelectDevices from './views/SelectDevices';
 import EnergyRegistration from "./views/EnergyRegistration";
 import Overview from "./views/EnergyOverview";
@@ -18,7 +18,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-            <Overview/>
+            <Register/>
       </div>
     );
   }
