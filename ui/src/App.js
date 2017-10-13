@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'react-table/react-table.css'
 import SelectDeviceModel from "./model/SelectDeviceModel";
+import EnergyRegistrationModel from "./model/EnergyRegistrationModel";
 
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h1 className="App-title">Welcome to React</h1>
                 </header>
-                <SelectDeviceModel/>
+                <EnergyRegistrationModel/>
             </div>
         );
     }
