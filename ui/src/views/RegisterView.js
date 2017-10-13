@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import View from "./View";
-import FormController from "../controllers/FormController";
+import RegisterController from "../controllers/RegisterController";
 
 class RegisterView extends View {
 
     render() {
 
-        const controller = new FormController(this.model);
+        const controller = new RegisterController(this.model);
 
         return (
             React.createElement('form', {className: 'ContactForm', onSubmit: controller.handleSubmit},
