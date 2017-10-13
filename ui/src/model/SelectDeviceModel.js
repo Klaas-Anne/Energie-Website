@@ -1,15 +1,10 @@
 import React, {Component} from 'react';
-import Form from '../controllers/FormController';
+import StateModel from "./StateModel";
+import SelectDeviceView from "../views/SelectDeviceView";
 
-class SelectDevices extends Form {
+class SelectDeviceModel extends StateModel {
 
-    handleSubmit(e) {
-        super.handleSubmit(e);
-        // Content is stored in this.state
-        // Perform API logic here.
-    }
-
-    static getAllDevices() {
+    getAllDevices() {
 
         return [
             {
@@ -46,31 +41,11 @@ class SelectDevices extends Form {
         ];
     }
 
-
     render() {
-
-        var devices = SelectDevices.getAllDevices();
-
         return (
-
-            React.createElement('form', {className: 'devices-form', onSubmit: this.handleSubmit},
-                devices.map((device) => (
-                    <DeviceCheckBox device={device} handler={this.handleInputChange}/>
-                )),
-                React.createElement('button', {type: 'submit'}, "Save")
-            ))
+            new SelectDeviceView(this).render()
+        )
     }
 }
 
-const DeviceCheckBox = ({device, handler}) => {
-    return ([
-        <label>{device.naam}</label>,
-        React.createElement('input', {
-            type: 'checkbox',
-            name: device.id,
-            onChange: handler
-        })
-    ])
-};
-
-export default SelectDevices
+export default SelectDeviceModel
