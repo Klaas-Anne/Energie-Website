@@ -26,7 +26,7 @@ pre { background-color:#FFFFE0; padding:5px; border:1px solid #666600; }
 		$db = new Db($dbconfig);
 		$db->openConnection();
 		$aangemaakt=vulDatabase($db,$parms);
-		echo"Er zijn ".$aangemaakt["huishoudens"]." huishoudens en ".$aangemaakt["apparaten"]." apparaten aangemaakt";
+		echo"Er zijn ".$aangemaakt["huishoudens"]." huishoudens, " . $aangemaakt['metingen'] . " metingen en ".$aangemaakt["apparaten"]." apparaten aangemaakt";
 		$db->closeConnection();
 	}
 
@@ -67,10 +67,11 @@ pre { background-color:#FFFFE0; padding:5px; border:1px solid #666600; }
 		$randdomDatum = mt_rand(20000101, 20171010);
 		$datum=date("Y:m:d", $randdomDatum);
 		$tijd=0;
-		$waarde=0;
-		$app_hh=$localData->getValidApparaatId();
-		$opdracht="INSERT INTO metingen (app_hh, datum, tijd, waarde)"
-						.'VALUES ("'.$app_hh.'", "'.$datum.'", "'.$tijd.'", "'.$waarde.'")';
+		$waarde=0; // TODO: Max app_hh
+		$app_hh=$localData->getValidApparaatHuishoudenId();
+		$opdracht="INSERT INTO meting (app_hh, datum, tijd, waarde)"
+						.'VALUES ('.$app_hh.', "'.$datum.'", "'.$tijd.'", '.$waarde.')';
+
 		return($db->insert_query($opdracht));
 	}
 ?>	

@@ -135,6 +135,8 @@
 		private $apparaten;
 		private $aantalApparaten;
 		private $metingen;
+		private $apparaatHuishoudens;
+		private $aantalApparaatHuishoudends;
 	
 		function __construct($db){
 			$this->postcodes = $this->vulPostcodes($db);
@@ -142,6 +144,8 @@
 			$this->apparaten = $this->vulApparaten($db);
 			$this->aantalApparaten = count($this->apparaten);
 			$this->metingen = $this->vulMetetingen($db);
+			$this->apparaatHuishoudens = $this->vulApparaatHuisHoudens($db);
+			$this->aantalApparaatHuishoudends = count($this->apparaatHuishoudens);
 		}
 	
 		function __destruct(){
@@ -164,6 +168,13 @@
 			$result=$db->getArrayResult($opdracht);
 			return $result;
 		}
+
+        public  function vulApparaatHuisHoudens($db)
+        {
+            $opdracht="SELECT id FROM apparaat_huishouden";
+            $result=$db->getArrayResult($opdracht);
+            return $result;
+        }
 	
 		public function getValidRandomAddress(){
 			$postcode=$this->postcodes[rand(0,$this->aantalPostcodes-1)];
@@ -177,5 +188,11 @@
 		public function getValidApparaatId(){
 			return $this->apparaten[rand(0,$this->aantalApparaten-1)]["id"];
 		}
-	}
+
+        public function getValidApparaatHuishoudenId(){
+            return $this->apparaatHuishoudens[rand(0,$this->aantalApparaatHuishoudends-1)]["id"];
+        }
+
+
+    }
 ?>
