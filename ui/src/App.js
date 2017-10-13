@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'react-table/react-table.css'
+
 
 import Register from './views/Register';
 import SelectDevices from './views/SelectDevices';
 import EnergyRegistration from "./views/EnergyRegistration";
+import Overview from "./views/EnergyOverview";
 
 
 class App extends Component {
@@ -15,7 +18,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-            <EnergyRegistration/>
+            <Overview/>
       </div>
     );
   }
