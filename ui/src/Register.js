@@ -1,9 +1,10 @@
+import Form from "./Helpers/Form";
 import React, {Component} from 'react';
 
-class Register extends Component {
+class Register extends Form {
 
-    constructor(props) {
-        super(props)
+    constructor() {
+        super();
 
         this.state = {
             number: 1,
@@ -12,27 +13,12 @@ class Register extends Component {
             zipcode: '',
             place: ''
         };
-
-        console.log(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    handleSubmit() {
-
-    }
-
-
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-
-        console.log(name);
-        console.log(value);
-        this.setState({
-            [name]: value
-        });
+    handleSubmit(e) {
+        super.handleSubmit(e);
+        // Content is stored in this.state
+        // Perform API logic here.
     }
 
     render() {

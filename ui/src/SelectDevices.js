@@ -1,26 +1,12 @@
 import React, {Component} from 'react';
+import Form from './Helpers/Form';
 
-class SelectDevices extends Component {
-
-    constructor(props) {
-        super(props)
-        this.handleInputChange = this.handleInputChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+class SelectDevices extends Form {
 
     handleSubmit(e) {
-        e.preventDefault();
-        // this.state contains key=> value if set
-    }
-
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-
-        console.log(target.name);
-        this.setState({
-            [target.name]: value
-        });
+        super.handleSubmit(e);
+        // Content is stored in this.state
+        // Perform API logic here.
     }
 
     static getAllDevices() {
