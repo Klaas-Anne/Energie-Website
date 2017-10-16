@@ -1,3 +1,4 @@
+import React from 'react';
 import FormController from "./FormController";
 import axios from 'axios';
 
@@ -6,6 +7,8 @@ class RegisterController extends FormController {
 
     handleSubmit(e) {
         super.handleSubmit(e);
+
+        console.log('moi');
 
         /*
             Onderstaande data moet worden opgeslagen in de database:
@@ -18,22 +21,7 @@ class RegisterController extends FormController {
             street: this.model.state.street, // Straatnaam
             zipcode: this.model.state.zipcode, // Postcode
             place: this.model.state.place // Plaats
-        }
-
-
-        /*
-            Doe hier de API call om te registreren.
-         */
-
-        const BASE_URL = 'url';
-
-        axios.post(BASE_URL,
-            dataToSend,
-        ).then(function (response) {
-            // Geef in de response bijv. een id van het gemaakte entities mee.
-        }).catch(function (error) {
-            console.log(error);
-        })
+        };
     }
 
 }
