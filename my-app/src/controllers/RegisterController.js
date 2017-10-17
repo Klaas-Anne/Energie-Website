@@ -1,14 +1,14 @@
 import React from 'react';
 import FormController from "./FormController";
+
 //import axios from 'axios';
+
 
 class RegisterController extends FormController {
 
 
     handleSubmit(e) {
-        super.handleSubmit(e);
-
-        console.log('moi');
+        //super.handleSubmit(e);
 
         /*
             Onderstaande data moet worden opgeslagen in de database:
@@ -22,6 +22,9 @@ class RegisterController extends FormController {
             zipcode: this.model.state.zipcode, // Postcode
             place: this.model.state.place // Plaats
         };
+
+
+        this.model.storeToState('registered', true);
     }
 
 }
