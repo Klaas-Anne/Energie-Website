@@ -24,7 +24,15 @@ class RegisterController extends FormController {
         };
 
 
-        this.model.storeToState('registered', true);
+        axios.post(BASE_URL,
+            dataToSend,
+        ).then(function (response) {
+            this.model.storeToState('registered', true);
+            // Geef in de response bijv. een id van het gemaakte entities mee.
+        }).catch(function (error) {
+            console.log(error);
+        })
+
     }
 
 }
